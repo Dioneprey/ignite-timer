@@ -24,11 +24,14 @@ const newCycleFormValidationSchema = z.object({
 type newCycleFormData = z.infer<typeof newCycleFormValidationSchema>
 
 export function Home() {
-  const { register, handleSubmit, watch } = useForm<newCycleFormData>({
+  const { register, handleSubmit, watch, reset } = useForm<newCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
   })
 
-  function handleCreateNewCycle(data) {}
+  function handleCreateNewCycle(data: newCycleFormData) {
+    console.log(data)
+    reset()
+  }
 
   const task = watch('task')
   const isSubmitDisabled = !task
