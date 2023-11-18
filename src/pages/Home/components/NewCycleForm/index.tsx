@@ -29,7 +29,7 @@ export function NewCycleForm() {
         id="minutesAmount"
         type="number"
         step={5}
-        min={1}
+        min={0}
         max={60}
         placeholder="00"
         disabled={!!activeCycle}
